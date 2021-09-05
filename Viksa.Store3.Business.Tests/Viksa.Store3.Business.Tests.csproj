@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="Moq" Version="4.16.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.7" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Viksa.Store3.Business\Viksa.Store3.Business.csproj" />
+    <ProjectReference Include="..\Viksa.Store3.DataAccess\Viksa.Store3.DataAccess.csproj" />
+    <ProjectReference Include="..\Viksa.Store3.Models\Viksa.Store3.Models.csproj" />
+  </ItemGroup>
+
+</Project>

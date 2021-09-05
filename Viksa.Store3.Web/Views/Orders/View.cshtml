@@ -1,0 +1,63 @@
+﻿@model Viksa.Store3.Web.Models.Orders.ViewOrderModel
+
+@{
+    ViewData["Title"] = "View order";
+}
+
+<h1>View order @Model.Id</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FullFillmentDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FullFillmentDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+        @if (!string.IsNullOrEmpty(Model.AssignedAgreementName))
+        {
+            <dt class="col-sm-2">
+                Assigned agreement
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.AssignedAgreementName)
+            </dd>
+        }
+    </dl>
+</div>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Units</th>
+            <th>Price per unit</th>
+            <th>Adjusted price per unit</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var line in Model.OrderLines)
+        {
+            await Html.RenderPartialAsync("_viewOrderLine", line);
+        }
+    </tbody>
+
+</table>
+
+<div></div>

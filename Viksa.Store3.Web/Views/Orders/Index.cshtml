@@ -1,0 +1,46 @@
+﻿@model Viksa.Store3.Web.Models.Orders.ViewOrderListModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Order ID
+            </th>
+            <th>
+                Customer
+            </th>
+            <th>
+                Fullfillment date
+            </th>
+            <th>
+                Total price 
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Orders) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullFillmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>                
+                @Html.ActionLink("View", "View", new { id = item.Id })                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

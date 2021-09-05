@@ -1,0 +1,17 @@
+﻿@model Viksa.Store3.Web.Models.Orders.NewOrderLineModel
+
+
+<div class="NewOrderLine">
+    <div class="row">
+        <div class="col">
+            <label asp-for="ProductId" class="control-label">Product</label>
+            @Html.DropDownListFor(x => x.ProductId, ViewBag.Products as IEnumerable<SelectListItem>, "Please select ...", new { @class = "form-control", id = $"ProductId" })
+            <span asp-validation-for="ProductId" class="text-danger"></span>
+        </div>
+        <div class="col">
+            <label asp-for="NumberOfUnits" class="control-label">Number of units</label>
+            <input asp-for="NumberOfUnits" class="form-control" id="NumberOfUnits" />
+            <span asp-validation-for="NumberOfUnits" class="text-danger"></span>
+        </div>
+    </div>
+</div>
